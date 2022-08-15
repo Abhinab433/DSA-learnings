@@ -27,8 +27,8 @@ return 1;
 else{
 return 0;
 
-}
-int Push(struct stack *ptr,char item)
+}}
+int push(struct stack *ptr,char item)
 {
 ptr->top=ptr->top+1;
 ptr->arr[ptr->top]=item;
@@ -36,7 +36,7 @@ return 0;
 
 }
 
-char Pop(struct  stack *ptr){
+char pop(struct  stack *ptr){
 char x;
 
 x=ptr->arr[ptr->top];
@@ -47,7 +47,7 @@ return x;
 
 }
 char stackTop(struct stack *sp){
-	return sp->arr*[sp->top];
+	return sp->arr[sp->top];
 }
 int match(char a, char b){
 	if(a=='{'&& b=='}'){
@@ -59,6 +59,7 @@ int match(char a, char b){
 		if(a=='['&& b==']'){
 		return 3;
 	}
+	return 0;
 }
 int parenthesisMatch(char* exp){
 
@@ -69,15 +70,15 @@ s->size=80;
 s->arr=(char*)malloc(s->size*sizeof(char));
 char popped_ch;
 for (int i=0; exp[i]!='\0';i++){
-	if(exp[i]=='('|| exp[i]=='{' || exp=='[')
+	if(exp[i]=='('|| exp[i]=='{' || exp[i]=='[')
 	{
-		push (sp,exp[i]);
+		push(s,exp[i]);
 	}
-	else if(exp[i]==')'|| exp[i]=='}'| ex[==']'){
-		if(isEmpty(sp)){
+	else if(exp[i]==')'|| exp[i]=='}'||exp[i]==']'){
+		if(isEmpty(s)){
 			return 0;
 		}
-	popped_ch=pop(sp);
+	popped_ch=pop(s);
 	if(!match( popped_ch,exp[i]))
 	{
 		return 0;
@@ -88,14 +89,14 @@ for (int i=0; exp[i]!='\0';i++){
 }
 int main()
 {
-	char * exp "";
+	char *exp ="[8+9(7-9)]";
 	
 	if(parenthesisMatch(exp)){
 		printf("The parenthesis is matchiing");
 		
 	}
 	else{
-		printf("The parameter is not matching");
+		printf("The parenthesis is not matching");
 	}
 	return 0;
 }
