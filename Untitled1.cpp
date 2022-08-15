@@ -1,7 +1,11 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string>
-
+struct stack{
+	int size;
+	int top;
+	char arr*;
+};
 
 char precedence(char b){
 	if(b=='^'){
@@ -16,5 +20,6 @@ char precedence(char b){
 	else if 
 }
 int main(){
+	
 	
 }
