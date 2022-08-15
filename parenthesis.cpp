@@ -6,10 +6,28 @@
 struct stack{
 	int top;
 	int size;
-	char arr*;
+	char *arr;
 	
 };
+int isEmpty(struct stack *ptr){
+if(ptr->top==-1){
+return 1;
 
+}
+else{
+return 0;
+
+}
+}
+int isFull(struct stack *ptr){
+if(ptr->top==ptr->size-1){
+return 1;
+
+}
+else{
+return 0;
+
+}
 int Push(struct stack *ptr,char item)
 {
 ptr->top=ptr->top+1;
@@ -48,7 +66,7 @@ int parenthesisMatch(char* exp){
 int a,b,c,d,p;
 s->top=-1;
 s->size=80;
-s->arr=(int*)malloc(s->size*sizeof(int));
+s->arr=(char*)malloc(s->size*sizeof(char));
 char popped_ch;
 for (int i=0; exp[i]!='\0';i++){
 	if(exp[i]=='('|| exp[i]=='{' || exp=='[')
@@ -60,11 +78,24 @@ for (int i=0; exp[i]!='\0';i++){
 			return 0;
 		}
 	popped_ch=pop(sp);
-	if(!match( stackTop(sp),popped_ch))
+	if(!match( popped_ch,exp[i]))
 	{
 		return 0;
 	}
 	}
 }
 
+}
+int main()
+{
+	char * exp "";
+	
+	if(parenthesisMatch(exp)){
+		printf("The parenthesis is matchiing");
+		
+	}
+	else{
+		printf("The parameter is not matching");
+	}
+	return 0;
 }
